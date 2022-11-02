@@ -1,0 +1,15 @@
+-- format on save
+-- local autoformatGrp = vim.api.nvim_create_augroup("AutoFormat", { clear = true })
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     command = ":normal! mzgg=G`z",
+--     group = autoformatGrp,
+-- })
+--
+
+--[[ vim.api.nvim_create_autocmd("FileType", { ]]
+--[[     pattern = "python", ]]
+--[[     callback = function(args) ]]
+--[[         print("Entered buffer " .. args.buf .. "!") ]]
+--[[     end, ]]
+--[[     desc = "Tell me when I enter a buffer", ]]
+--[[ }) ]]
