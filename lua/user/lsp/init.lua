@@ -1,8 +1,19 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-    return
-end
+require('lspconfig').sumneko_lua.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      }
+    }
+  }
+}
 
-require("user.lsp.lsp-installer")
---[[ require("user.lsp.null-ls") ]]
-require("user.lsp.handlers").setup()
+require('lspconfig').tsserver.setup {}
+
+require('lspconfig').tailwindcss.setup {}
+
+require('lspconfig').emmet_ls.setup {}
+
+require('lspconfig').html.setup {
+  filetypes = { "html", "javascriptreact" },
+}
