@@ -33,6 +33,8 @@ function clone_repository() {
 }
 
 NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
+mkdir -p ~/.local/share/nvim/site/pack/packer/start/
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 msg "Beginning LoboVim installation..."
 # remove current neovim config directory so that we can start with a clean slate
