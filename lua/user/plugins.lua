@@ -74,10 +74,10 @@ return packer.startup(function(use)
   --    end,
   --  })
   --
-  --  -- Colorschemes
-  --  use("sainnhe/everforest")
-  --
-  -- cmp plugins
+  -- Colorschemes
+  use("sainnhe/everforest")
+
+  -- Autocompletion
   use("hrsh7th/nvim-cmp") -- The completion plugin
   use("hrsh7th/cmp-buffer") -- buffer completions
   use("hrsh7th/cmp-path") -- path completions
@@ -85,20 +85,20 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip") -- snippet completions
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-nvim-lua")
-  --
-  -- snippets
+
+  -- Snippets
   use("L3MON4D3/LuaSnip") --snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-  use("Nash0x7E2/awesome-flutter-snippets")
-  --
-  --  -- LSP
-  --  use("neovim/nvim-lspconfig") -- enable LSP
-  --  use("jose-elias-alvarez/null-ls.nvim")
-  --  use{ "williamboman/mason.nvim",
-  --  config = function()
-  --    require("mason").setup { }
-  --    end
-  --  }
+
+  -- LSP for communication with language servers, code completion, refactoring, etc.
+  -- nvim-cmp (autocompletion above) uses these language servers for its completion
+  use("neovim/nvim-lspconfig") -- enable LSP
+  use("jose-elias-alvarez/null-ls.nvim")
+  use{ "williamboman/mason.nvim",
+  config = function()
+    require("mason").setup { }
+    end
+  }
   --
   --  -- Lua
   --  use {
