@@ -27,7 +27,7 @@ function clone_repository() {
   local repo_url="$2"
   local dest_dir="$3"
 
-  if ! git clone -b "$branch" $repo_url" "$dest_dir"; then
+  if ! git clone -b "$branch" "$repo_url" "$dest_dir"; then
     msg "Failed to clone repository."
     exit 1
   fi
@@ -58,4 +58,3 @@ fi
 msg "Cloning LoboVim repository..."
 clone_repository "$BRANCH" "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
 msg "LoboVim repository cloned successfully."
-
