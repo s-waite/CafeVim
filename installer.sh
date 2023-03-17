@@ -33,9 +33,9 @@ function clone_repository() {
   fi
 }
 
-# Remove Neovim configuration directory
 NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
 
+# remove current neovim config directory so that we can start with a clean slate
 if [ -d "$NEOVIM_CONFIG_DIR" ]; then
   if confirm "Are you sure you want to delete your Neovim configuration?"; then
     echo "Deleting Neovim configuration directory..."
@@ -46,8 +46,7 @@ if [ -d "$NEOVIM_CONFIG_DIR" ]; then
     exit 1
   fi
 else
-  echo "Neovim configuration directory not found."
-  exit 1
+  echo "Nothing was deleted. Neovim configuration directory not found."
 fi
 
 # Clone LoboVim repository
