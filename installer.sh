@@ -1,5 +1,4 @@
 #!/bin/bash
-
 function msg() {
   echo "$1"
 }
@@ -35,6 +34,7 @@ function clone_repository() {
 
 NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
 
+msg "Beginning LoboVim installation..."
 # remove current neovim config directory so that we can start with a clean slate
 if [ -d "$NEOVIM_CONFIG_DIR" ]; then
   if confirm "Are you sure you want to delete your Neovim configuration?"; then
