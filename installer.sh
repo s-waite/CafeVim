@@ -23,16 +23,19 @@ function confirm() {
 }
 
 function clone_repository() {
-  local repo_url="$1"
-  local dest_dir="$2"
+  local branch="$1"
+  local repo_url="$2"
+  local dest_dir="$3"
 
-  if ! git clone "$repo_url" "$dest_dir"; then
+  if ! git clone -b "$branch" $repo_url" "$dest_dir"; then
     echo "Failed to clone repository."
     exit 1
   fi
 }
 
 NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
+BRANCH="$1"
+
 mkdir -p ~/.local/share/nvim/site/pack/packer/start/
 git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
@@ -53,6 +56,6 @@ fi
 
 # Clone LoboVim repository
 echo "Cloning LoboVim repository..."
-clone_repository "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
+clone_repository "$BRANCH" https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
 echo "LoboVim repository cloned successfully."
 
