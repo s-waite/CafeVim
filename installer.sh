@@ -28,7 +28,7 @@ function clone_repository() {
   local dest_dir="$3"
 
   if ! git clone -b "$branch" $repo_url" "$dest_dir"; then
-    echo "Failed to clone repository."
+    msg "Failed to clone repository."
     exit 1
   fi
 }
@@ -43,19 +43,19 @@ msg "Beginning LoboVim installation..."
 # remove current neovim config directory so that we can start with a clean slate
 if [ -d "$NEOVIM_CONFIG_DIR" ]; then
   if confirm "Are you sure you want to delete your Neovim configuration?"; then
-    echo "Deleting Neovim configuration directory..."
+    msg "Deleting Neovim configuration directory..."
     rm -rf "$NEOVIM_CONFIG_DIR"
-    echo "Neovim configuration directory deleted successfully."
+    msg "Neovim configuration directory deleted successfully."
   else
-    echo "Aborting. Neovim configuration directory not deleted."
+    msg "Aborting. Neovim configuration directory not deleted."
     exit 1
   fi
 else
-  echo "Nothing was deleted. Neovim configuration directory not found."
+  msg "Nothing was deleted. Neovim configuration directory not found."
 fi
 
 # Clone LoboVim repository
-echo "Cloning LoboVim repository..."
-clone_repository "$BRANCH" https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
-echo "LoboVim repository cloned successfully."
+msg "Cloning LoboVim repository..."
+clone_repository "$BRANCH" "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
+msg "LoboVim repository cloned successfully."
 
