@@ -55,10 +55,10 @@ fi
 # Install packer
 mkdir -p ~/.local/share/nvim/site/pack/packer/start/
 git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim --headless -c "PackerInstall"
+nvim --headless -c "packadd packer.nvim | PackerInstall"
 
 # Clone LoboVim repository
-msg "Cloning LoboVim repository..."
-clone_repository "$BRANCH" "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
-msg "LoboVim repository cloned successfully."
+# msg "Cloning LoboVim repository..."
+# clone_repository "$BRANCH" "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
+# msg "LoboVim repository cloned successfully."
 
