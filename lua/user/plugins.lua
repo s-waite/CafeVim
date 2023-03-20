@@ -132,7 +132,7 @@ return packer.startup(function(use)
   --  use("kana/vim-textobj-user")
   --  use("jceb/vim-textobj-uri")
   --  use("kana/vim-textobj-line")
-  --  use("AndrewRadev/sideways.vim")
+  use("AndrewRadev/sideways.vim")
   --  use("kana/vim-textobj-indent")
   --  use("kana/vim-textobj-entire")
   --
