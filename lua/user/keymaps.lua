@@ -1,3 +1,4 @@
+-- vim: foldmethod=marker
 -- Options to use for all keymaps
 local opts = { noremap = true, silent = true }
 
@@ -12,25 +13,22 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Clear Highlights
-keymap("n", "<Space><Space>", ":noh<CR>", opts)
-
--- Insert Mode ----------------------------------------------------------------
+-- {{{ Insert Mode 
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
+-- }}}
 
--- Normal Mode
--- Sideways
+-- {{{ Normal Mode
+-- Sideways plugin, for moving function arguments around
 keymap("n", "<C-h>", ":SidewaysLeft<CR>", opts)
 keymap("n", "<C-l>", ":SidewaysRight<CR>", opts)
+
 -- Adding blank lines above or below
 vim.api.nvim_set_keymap('n', '<CR>', 'mxo<Esc>k`x', { noremap = true })
 vim.api.nvim_set_keymap('n', '<S-CR>', 'mxO<Esc>`x', { noremap = true })
 
--- Define the local function
-
--- Create the user command
-
+-- Clear Highlights
+keymap("n", "<Space><Space>", ":noh<CR>", opts)
 
 -- LSP
 -- Some keymaps are found in whichkey.lua
@@ -51,3 +49,4 @@ keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 --[[ ) ]]
 --[[ keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts) ]]
 --[[ keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) ]]
+-- }}}

@@ -32,6 +32,7 @@ local options = {
   backspace = {'indent', 'eol', 'start'},  -- make backspace work more predictibly
   sidescrolloff = 5,                       -- always show some lines to the side of the cursor
   showmode = false,                        -- lualine shows the mode so we dont need nvim to
+  modeline = true,                   -- enable modelines for neovim
 
   -- gui only options
   guifont = "Iosevka Nerd Font Mono",

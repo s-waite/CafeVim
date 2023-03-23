@@ -3,8 +3,8 @@ require("user.options")
 require("user.colorscheme")
 require("user.keymaps")
 require("user.commands")
---[[ require("user.cmp") ]]
---[[ require("user.lsp") ]]
+require("user.cmp")
+require("user.lsp")
 --[[ require("user.telescope") ]]
 --[[ require("user.treesitter") ]]
 --[[ require("user.autocommands") ]]
