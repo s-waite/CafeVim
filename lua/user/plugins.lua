@@ -41,10 +41,14 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
+use({
+  "nvim-treesitter/nvim-treesitter",
+})
+use({"p00f/nvim-ts-rainbow",
+  })
   use("wbthomason/packer.nvim") -- Have packer manage itself
   use("nvim-lua/popup.nvim")    -- An implementation of the Popup API from vim in Neovim
   use("nvim-lua/plenary.nvim")  -- Useful lua functions used by lots of plugins
-  use("windwp/nvim-autopairs")  -- Automatic closing brackets etc.
   use("numToStr/Comment.nvim")  -- Easily comment stuff
   -- use("luukvbaal/nnn.nvim")
   --  use("kyazdani42/nvim-web-devicons")
@@ -87,7 +91,7 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lua")
 
   -- Snippets
-  use("L3MON4D3/LuaSnip")             --snippet engine
+  use("L3MON4D3/LuaSnip")             --snippet enginikkkkkkkkkkkke
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
   -- LSP for communication with language servers, code completion, refactoring, etc.
@@ -98,8 +102,10 @@ return packer.startup(function(use)
     "neovim/nvim-lspconfig",
   }
 
-  -- Language and Framework Specific
-  use("mfussenegger/nvim-jdtls")
+  -- Language, filetype, and framework specific
+  use("mfussenegger/nvim-jdtls") -- Java
+  -- Use the correct comment characters when dealing with jsx and tsx
+  use ( "JoosepAlviste/nvim-ts-context-commentstring" )
 
   --  -- Lua
   --  use {
@@ -118,13 +124,7 @@ return packer.startup(function(use)
   --  use("nvim-telescope/telescope.nvim")
   --  use("nvim-telescope/telescope-file-browser.nvim")
   --
-  --  -- Treesitter
-  --  use({
-  --    "nvim-treesitter/nvim-treesitter",
-  --    run = ":TSUpdate",
-  --  })
-  --  use("p00f/nvim-ts-rainbow")
-  --  use("JoosepAlviste/nvim-ts-context-commentstring")
+-- Treesitter
   --
   --  -- Git
   --  use("lewis6991/gitsigns.nvim")

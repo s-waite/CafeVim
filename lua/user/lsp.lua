@@ -7,7 +7,10 @@ local servers = {
   "bashls",
   "jsonls",
   "yamlls",
-  "emmet_ls"
+  "emmet_ls",
+  "marksman",
+  "gradle_ls",
+  "tailwindcss",
 }
 
 require("mason").setup()

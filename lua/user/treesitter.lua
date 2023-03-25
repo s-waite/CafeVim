@@ -1,11 +1,8 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
-  ensure_installed = "all",
-  sync_install = false,
+  --[[ ensure_installed = "all", ]]
+  --[[ sync_install = false, ]]
   ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
-  autopairs = {
-    enable = true;
-  },
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "help" }, -- list of language that will be disabled
@@ -15,10 +12,12 @@ configs.setup {
   indent = { enable = true, disable = { "python", "yaml", "dart" } },
   rainbow = {
     enable = true,
-    --[[ disable = { "jsx", "cpp" }, ]]
     extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
+    max_file_lines = 5000, -- Do not enable for files with more than n lines, int
   },
+  -- For Comment.nvim integration
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  }
 }

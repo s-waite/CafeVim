@@ -1,15 +1,17 @@
-require("user.plugins")
 require("user.options")
 require("user.colorscheme")
 require("user.keymaps")
 require("user.commands")
-require("user.cmp")
 require("user.lsp")
+
+-- Plugins
+require("user.plugins")
+require("user.comment")
+require("user.treesitter")
+require("user.cmp")
 --[[ require("user.telescope") ]]
---[[ require("user.treesitter") ]]
 --[[ require("user.autocommands") ]]
 --[[ require("user.autopairs") ]]
---[[ require("user.comment") ]]
 --[[ require("user.nnn") ]]
 --[[ require("user.gitsigns") ]]
 --[[ require("user.bufferline") ]]

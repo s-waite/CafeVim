@@ -65,6 +65,7 @@ clone_repository "$BRANCH" "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CON
 msg "LoboVim repository cloned successfully."
 
 # Install Packer plugins without having to open NeoVim
-nvim -u ~/.config/nvim/utils/first_install.lua --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim -u ~/.config/nvim/utils/first_install.lua -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c "TSInstallSync all" -c q
 msg "Installation finished!"
 
