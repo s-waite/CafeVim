@@ -69,3 +69,10 @@ nvim -u ~/.config/nvim/utils/first_install.lua --headless -c 'autocmd User Packe
 nvim --headless -c "TSInstallSync java bash dockerfile fish gitcommit gitignore json kotlin markdown_inline mason sql toml vim yaml" -c q
 msg "Installation finished!"
 
+# Install Java language server
+local jdtls_dir = "$HOME/.local/share/nvim/java-language-server"
+mkdir "$jdtls_dir"
+cd "$jdtls_dir"
+wget -O language-server "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz"
+tar -xzf ./language-server
+rm -r ./language-server

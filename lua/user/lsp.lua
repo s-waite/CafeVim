@@ -1,6 +1,7 @@
 -- Language server to install
 local servers = {
   "cssls",
+  "lua_ls",
   "html",
   "tsserver",
   "pyright",
@@ -8,10 +9,8 @@ local servers = {
   "jsonls",
   "yamlls",
   "emmet_ls",
-  "marksman",
   "gradle_ls",
   "tailwindcss",
-  "jdtls"
 }
 
 require("mason").setup()
@@ -39,9 +38,6 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, "@")[1]
 
-  -- Don't set up the java language server, this is done seperately through the nvim-jdtls plugin
-  if server ~= "jdtls" then
-    lspconfig[server].setup(server_opts)
-  end
+  lspconfig[server].setup(server_opts)
 
 end
