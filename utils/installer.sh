@@ -66,6 +66,6 @@ msg "LoboVim repository cloned successfully."
 
 # Install Packer plugins without having to open NeoVim
 nvim -u ~/.config/nvim/utils/first_install.lua --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless -c "TSInstallSync all" -c q
+nvim --headless -c "TSInstallSync java bash dockerfile fish gitcommit gitignore json kotlin markdown_inline mason sql toml vim yaml" -c q
 msg "Installation finished!"
 
