@@ -11,6 +11,7 @@ local servers = {
   "marksman",
   "gradle_ls",
   "tailwindcss",
+  "jdtls"
 }
 
 require("mason").setup()
@@ -22,10 +23,6 @@ local lspconfig = require("lspconfig")
 
 local on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.server_capabilities.documentFormattingProvider = false
-  end
-
-  if client.name == "sumneko_lua" then
     client.server_capabilities.documentFormattingProvider = false
   end
 end
@@ -42,5 +39,9 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, "@")[1]
 
-  lspconfig[server].setup(server_opts)
+  -- Don't set up the java language server, this is done seperately through the nvim-jdtls plugin
+  if server ~= "jdtls" then
+    lspconfig[server].setup(server_opts)
+  end
+
 end
