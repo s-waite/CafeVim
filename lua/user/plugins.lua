@@ -1,3 +1,4 @@
+-- vim: foldmethod=marker
 local fn = vim.fn
 
 -- Automatically install packer and plugins if packer not installed
@@ -41,47 +42,17 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-use({
-  "nvim-treesitter/nvim-treesitter",
-})
-use({"p00f/nvim-ts-rainbow",
-  })
+  -- {{{ General
   use("wbthomason/packer.nvim") -- Have packer manage itself
-  use("nvim-lua/popup.nvim")    -- An implementation of the Popup API from vim in Neovim
   use("nvim-lua/plenary.nvim")  -- Useful lua functions used by lots of plugins
   use("numToStr/Comment.nvim")  -- Easily comment stuff
-  -- use("luukvbaal/nnn.nvim")
-  --  use("kyazdani42/nvim-web-devicons")
-  --  use("akinsho/bufferline.nvim")
-  --  use("moll/vim-bbye")
-  --  use("nvim-lualine/lualine.nvim")
-  --  use("akinsho/toggleterm.nvim")
-  --  use("lewis6991/impatient.nvim")
-  --  use("lukas-reineke/indent-blankline.nvim")
-  --  use("goolord/alpha-nvim")
-  --  use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-  --  use("folke/which-key.nvim")
-  --  use("mfussenegger/nvim-dap")
-  --  use({ "NvChad/nvim-colorizer.lua",
-  --    config = function()
-  --      require("colorizer").setup()
-  --    end,
-  --  })
-  --  use("mfussenegger/nvim-dap-python")
-  --  use("tpope/vim-surround")
-  --  use("mg979/vim-visual-multi")
-  --  use("ellisonleao/glow.nvim")
-  --  use("takac/vim-hardtime")
-  --  use({ "karb94/neoscroll.nvim",
-  --    config = function()
-  --      require("neoscroll").setup()
-  --    end,
-  --  })
-  --
-  -- Colorschemes
-  use("sainnhe/everforest")
+  -- }}}
 
-  -- Autocompletion
+  -- {{{ Colorschemes
+  use("sainnhe/everforest")
+  -- }}}
+
+  -- {{{ Autocompletion
   use("hrsh7th/nvim-cmp")         -- The completion plugin
   use("hrsh7th/cmp-buffer")       -- buffer completions
   use("hrsh7th/cmp-path")         -- path completions
@@ -89,23 +60,27 @@ use({"p00f/nvim-ts-rainbow",
   use("saadparwaiz1/cmp_luasnip") -- snippet completions
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-nvim-lua")
+  -- }}}
 
-  -- Snippets
-  use("L3MON4D3/LuaSnip")             --snippet enginikkkkkkkkkkkke
+  -- {{{ Snippets
+  use("L3MON4D3/LuaSnip")             --snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+  -- }}}
 
-  -- LSP for communication with language servers, code completion, refactoring, etc.
+  -- {{{ LSP
+  -- for communication with language servers, code completion, refactoring, etc.
   -- nvim-cmp (autocompletion above) uses these language servers for its completion
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+  -- }}}
 
   -- Language, filetype, and framework specific
   use("mfussenegger/nvim-jdtls") -- Java
   -- Use the correct comment characters when dealing with jsx and tsx
-  use ( "JoosepAlviste/nvim-ts-context-commentstring" )
+  use("JoosepAlviste/nvim-ts-context-commentstring")
 
   --  -- Lua
   --  use {
@@ -121,11 +96,14 @@ use({"p00f/nvim-ts-rainbow",
   --  }
   --
   --  -- telescope
-  --  use("nvim-telescope/telescope.nvim")
-  --  use("nvim-telescope/telescope-file-browser.nvim")
+  use("nvim-telescope/telescope.nvim")
+  use("nvim-telescope/telescope-file-browser.nvim")
+  use{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   --
--- Treesitter
-  --
+  -- Treesitter
+  use({ "nvim-treesitter/nvim-treesitter" })
+  use({ "p00f/nvim-ts-rainbow" })
+
   --  -- Git
   --  use("lewis6991/gitsigns.nvim")
   --

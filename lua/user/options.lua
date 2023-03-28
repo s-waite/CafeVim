@@ -33,10 +33,17 @@ local options = {
   sidescrolloff = 5,                       -- always show some lines to the side of the cursor
   showmode = false,                        -- lualine shows the mode so we dont need nvim to
   modeline = true,                   -- enable modelines for neovim
+  textwidth = 80,
 
   -- gui only options
   guifont = "Iosevka Nerd Font Mono",
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+pattern = "*",
+group = vim.api.nvim_create_augroup("AutoFormat", { clear = true }),
+command = 'lua vim.opt.formatoptions:remove{"r","o"}',
+})
 
 vim.g.neovide_refresh_rate = 120
 vim.g.neovide_cursor_animation_length = 0.03
