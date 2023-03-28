@@ -70,11 +70,10 @@ return packer.startup(function(use)
   -- {{{ LSP
   -- for communication with language servers, code completion, refactoring, etc.
   -- nvim-cmp (autocompletion above) uses these language servers for its completion
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-  }
+  use{ "williamboman/mason.nvim", run = ":MasonUpdate" }
+  use("williamboman/mason-lspconfig.nvim")
+  use("neovim/nvim-lspconfig")
+  use("jose-elias-alvarez/null-ls.nvim")
   -- }}}
 
   -- Language, filetype, and framework specific
@@ -98,7 +97,7 @@ return packer.startup(function(use)
   --  -- telescope
   use("nvim-telescope/telescope.nvim")
   use("nvim-telescope/telescope-file-browser.nvim")
-  use{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   --
   -- Treesitter
   use({ "nvim-treesitter/nvim-treesitter" })

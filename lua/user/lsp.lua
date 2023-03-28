@@ -26,6 +26,7 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end
 
+  -- disable formatting from "lua_ls" because we will be using a null-ls provider for formatting
   if client.name == "lua_ls" then
     client.server_capabilities.documentFormattingProvider = false
   end
@@ -53,3 +54,14 @@ for _, server in pairs(servers) do
   -- Setup each server
   lspconfig[server].setup(server_opts)
 end
+
+-- Setup null_ls, which we will use for some alternatives to the default
+-- language servers
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.stylua,
+    },
+})
+
+

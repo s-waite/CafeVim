@@ -39,11 +39,19 @@ local options = {
   guifont = "Iosevka Nerd Font Mono",
 }
 
+-- Do not automatically insert comments
 vim.api.nvim_create_autocmd("FileType", {
 pattern = "*",
 group = vim.api.nvim_create_augroup("AutoFormat", { clear = true }),
 command = 'lua vim.opt.formatoptions:remove{"r","o"}',
 })
+
+-- Use treesitter for code folding
+vim.cmd([[
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
+]])
 
 vim.g.neovide_refresh_rate = 120
 vim.g.neovide_cursor_animation_length = 0.03
