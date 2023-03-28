@@ -70,11 +70,11 @@ nvim --headless -c "TSInstallSync java bash dockerfile fish gitcommit gitignore 
 nvim --headless -c "MasonInstall stylua" -c q
 
 # Install Java language server
-local jdtls_dir = "$HOME/.local/share/nvim/java-language-server"
+jdtls_dir="$HOME/.local/share/nvim/java-language-server"
 mkdir "$jdtls_dir"
 cd "$jdtls_dir"
-wget -O language-server "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz"
-tar -xzf ./language-server
-rm -r ./language-server
+wget -O java-language-server "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz"
+tar -xzf ./java-language-server
+rm -r ./java-language-server
 
 msg "Installation finished!"
