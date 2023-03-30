@@ -37,7 +37,7 @@ NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
 NEOVIM_SHARE_DIR="$HOME/.local/share/nvim"
 BRANCH="$1"
 
-msg "Beginning LoboVim installation..."
+msg "Beginning CafeVim installation..."
 # remove current neovim config and share directories so that we can start with a clean slate
 if [ -d "$NEOVIM_CONFIG_DIR" ] || [ -d "$NEOVIM_SHARE_DIR" ]; then
   if confirm "Are you sure you want to delete your Neovim configuration and share directories?"; then
@@ -59,10 +59,10 @@ else
   msg "Nothing was deleted. Neovim configuration and share directories not found."
 fi
 
-# Clone LoboVim repository
-msg "Cloning LoboVim repository..."
-clone_repository "$BRANCH" "https://github.com/s-waite/LoboVim.git" "$NEOVIM_CONFIG_DIR"
-msg "LoboVim repository cloned successfully."
+# Clone CafeVim repository
+msg "Cloning CafeVim repository..."
+clone_repository "$BRANCH" "https://github.com/s-waite/CafeVim.git" "$NEOVIM_CONFIG_DIR"
+msg "CafeVim repository cloned successfully."
 
 # Install Packer plugins without having to open NeoVim
 nvim -u ~/.config/nvim/utils/first_install.lua --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
