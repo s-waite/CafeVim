@@ -1,11 +1,10 @@
 local options = {
   tabstop = 2,                             -- number of columns occupied by tab
-  cmdheight = 2,                           -- more space on command line to display messages
+  cmdheight = 1,                           -- set vertical space on command line to display messages
   shiftwidth = 2,                          -- width for autoindents
   completeopt = { 'menuone', 'noselect' }, -- show completion menu even when there is only one item, and don't auto select the first item
   pumheight = 10,                          -- popup menu height
-  showtabline = 2,                         -- always show tabs
-  timeoutlen=300,
+  showtabline = 0,                         -- never show tabs
   smartcase = true,                        -- override 'ignorecase' option if a capital letter is present in search
   expandtab = true,                        -- converts tabs to whitespaces
   number = true,                           -- show line numbers
@@ -34,9 +33,7 @@ local options = {
   showmode = false,                        -- lualine shows the mode so we dont need nvim to
   modeline = true,                   -- enable modelines for neovim
   textwidth = 80,
-
-  -- gui only options
-  guifont = "Iosevka Nerd Font Mono",
+  foldmethod = "manual"
 }
 
 -- Do not automatically insert comments
@@ -50,7 +47,6 @@ command = 'lua vim.opt.formatoptions:remove{"r","o"}',
 vim.cmd([[
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-set nofoldenable
 ]])
 
 vim.g.neovide_refresh_rate = 120

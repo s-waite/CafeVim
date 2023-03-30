@@ -13,7 +13,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- {{{ Insert Mode 
+-- {{{ Insert Mode
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 -- }}}
@@ -24,8 +24,8 @@ keymap("n", "<C-h>", ":SidewaysLeft<CR>", opts)
 keymap("n", "<C-l>", ":SidewaysRight<CR>", opts)
 
 -- Adding blank lines above or below
-vim.api.nvim_set_keymap('n', '<CR>', 'mxo<Esc>k`x', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-CR>', 'mxO<Esc>`x', { noremap = true })
+vim.api.nvim_set_keymap("n", "<CR>", "mxo<Esc>k`x", { noremap = true })
+vim.api.nvim_set_keymap("n", "<S-CR>", "mxO<Esc>`x", { noremap = true })
 
 -- Clear Highlights
 keymap("n", "<Space><Space>", ":noh<CR>", opts)
@@ -46,4 +46,13 @@ keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", o
 keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
+-- Navigation
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<leader>c", ":bd<CR>", opts)
+
+-- Telescope
+keymap("n", "<leader>e", ":Telescope find_files<CR>", opts)
+
 -- }}}
