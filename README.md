@@ -37,11 +37,22 @@
 
 ## Installation
 
-CafeVim can be installed one of two ways, [automatic install](#Automatic-Install) or manual install
+CafeVim can be installed one of two ways, [automatic installation](#automatic-installation) or [manual installation](#manual-installation)
+You can also run a docker container to check it out before installing:
+```bash
 
-#### Automatic Install
+```
 
 
+#### Automatic Installation
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/s-waite/LoboVim/main/utils/installer.sh)
+```
+
+#### Manual Installation
+
+1. Clone the repository
 
 ## Customization
 

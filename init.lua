@@ -11,13 +11,13 @@ require("user.treesitter")
 require("user.cmp")
 require("user.telescope")
 require("user.bufferline")
+require("user.toggleterm")
 --[[ require("user.autocommands") ]]
 --[[ require("user.autopairs") ]]
 --[[ require("user.nnn") ]]
 --[[ require("user.gitsigns") ]]
 --[[ require("user.lualine") ]]
 --[[ require("user.indent") ]]
---[[ require("user.toggleterm") ]]
 --[[ require("user.alpha") ]]
 --[[ require("user.whichkey") ]]
 --[[ require("user.dap-python") ]]

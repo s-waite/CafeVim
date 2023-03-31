@@ -1,3 +1,5 @@
+local M = {}
+
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
 	return
@@ -38,32 +40,37 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+-- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
-function _LAZYGIT_TOGGLE()
-	lazygit:toggle()
+-- function _LAZYGIT_TOGGLE()
+-- 	lazygit:toggle()
+-- end
+--
+-- local node = Terminal:new({ cmd = "node", hidden = true })
+--
+-- function _NODE_TOGGLE()
+-- 	node:toggle()
+-- end
+--
+-- local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
+--
+-- function _NCDU_TOGGLE()
+-- 	ncdu:toggle()
+-- end
+--
+-- local htop = Terminal:new({ cmd = "htop", hidden = true })
+--
+-- function _HTOP_TOGGLE()
+-- 	htop:toggle()
+-- end
+--
+
+function M.run_script()
+  local current_file_path = vim.fn.expand('%:p')
+  local filetype = vim.bo.filetype
+  if filetype == "python" then
+    Terminal:new({ cmd = "python3 " .. current_file_path, close_on_exit = false }):toggle()
+  end
 end
 
-local node = Terminal:new({ cmd = "node", hidden = true })
-
-function _NODE_TOGGLE()
-	node:toggle()
-end
-
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-
-function _NCDU_TOGGLE()
-	ncdu:toggle()
-end
-
-local htop = Terminal:new({ cmd = "htop", hidden = true })
-
-function _HTOP_TOGGLE()
-	htop:toggle()
-end
-
-local python = Terminal:new({ cmd = "python3", hidden = true })
-
-function _PYTHON_TOGGLE()
-	python:toggle()
-end
+return M
