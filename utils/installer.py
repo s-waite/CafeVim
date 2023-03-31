@@ -22,7 +22,7 @@ def clone_repository(branch, repo_url, dest_dir):
 home_dir = Path.home()
 neovim_config_dir = home_dir / ".config/nvim"
 neovim_share_dir = home_dir / ".local/share/nvim"
-branch = "master"
+branch = "main"
 
 display_message("Beginning CafeVim installation...")
 
