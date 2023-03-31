@@ -2,6 +2,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.prompt import Prompt
 import os
+import shutil
 import subprocess
 
 console = Console()
@@ -23,15 +24,15 @@ neovim_config_dir = home_dir / ".config/nvim"
 neovim_share_dir = home_dir / ".local/share/nvim"
 branch = "main"
 
-print("\n")
-console.print("Beginning CafeVim installation...", style="bold green")
+console.print("\n", end="")
+console.print("Beginning CafeVim installation...", style="bold green on blue")
 
 if neovim_config_dir.exists() or neovim_share_dir.exists():
     if confirm("Are you sure you want to delete your Neovim configuration and share directories?"):
         for directory in [neovim_config_dir, neovim_share_dir]:
             if directory.exists():
                 console.print(f"Deleting {directory}...")
-                directory.rmdir()
+                shutil.rmtree(directory)
                 console.print(f"{directory} deleted successfully.")
     else:
         console.print("Aborting. Neovim configuration and share directories not deleted.")
