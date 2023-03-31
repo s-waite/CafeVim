@@ -37,10 +37,11 @@
 
 ## Installation
 
-To install CafeVim, follow these steps:
+CafeVim can be installed one of two ways, [automatic install](#Automatic-Install) or manual install
 
-1. Ensure you have Neovim (>= 0.5) installed on your system.
-2. Clone the repository to your Neovim configuration directory:
+#### Automatic Install
+
+
 
 ## Customization
 
