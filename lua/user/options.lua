@@ -32,7 +32,6 @@ local options = {
   sidescrolloff = 5,                       -- always show some lines to the side of the cursor
   showmode = false,                        -- lualine shows the mode so we dont need nvim to
   modeline = true,                   -- enable modelines for neovim
-  textwidth = 80,
   foldmethod = "manual"
 }
 
