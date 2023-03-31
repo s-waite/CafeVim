@@ -1,4 +1,5 @@
-![CafeVim Logo](./repo_assets/logo.jpg)
+![CafeVim
+Logo](https://github.com/s-waite/CafeVim/blob/main/repo_assets/logo.png)
 
 <div align="center">
 
