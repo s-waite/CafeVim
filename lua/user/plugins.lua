@@ -70,7 +70,7 @@ return packer.startup(function(use)
 	-- {{{ LSP
 	-- for communication with language servers, code completion, refactoring, etc.
 	-- nvim-cmp (autocompletion above) uses these language servers for its completion
-	use({ "williamboman/mason.nvim", run = ":MasonUpdate" })
+	use({ "williamboman/mason.nvim" })
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -103,7 +103,7 @@ return packer.startup(function(use)
 
 	-- {{{ Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
-	use({ "p00f/nvim-ts-rainbow" })
+	use({ "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"})
 	-- }}}
 
 	-- {{{ Terminal
