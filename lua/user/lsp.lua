@@ -11,6 +11,7 @@ local servers = {
   "emmet_ls",
   "gradle_ls",
   "tailwindcss",
+  "marksman",
 }
 
 require("mason").setup()
