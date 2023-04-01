@@ -1,4 +1,5 @@
 from pathlib import Path
+from re import sub
 from rich.console import Console
 from rich.prompt import Prompt
 import os
@@ -85,15 +86,22 @@ subprocess.call(
         "q",
     ],
     stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL,
 )
+print()
 console.print("Success!", style=success_style)
+print()
 
 console.print("Installing formatting providers, please wait", style=progress_style)
 subprocess.call(["nvim", "--headless", "-c", "MasonInstall stylua black", "-c", "q"])
+print()
 console.print("Success!", style=success_style)
+print()
 
 
-if confirm("Would you like to install the Eclipse Java language server? If not, you will have to do this manually (see the nvim-jdtls plugin)"):
+if confirm(
+    "Would you like to install the Eclipse Java language server? If not, you will have to do this manually (see the nvim-jdtls plugin)"
+):
     jdtls_dir = neovim_share_dir / "java-language-server"
     jdtls_dir.mkdir(exist_ok=True)
     os.chdir(jdtls_dir)
