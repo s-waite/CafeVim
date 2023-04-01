@@ -54,5 +54,5 @@ keymap("n", "<leader>c", ":bd<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>e", ":Telescope find_files<CR>", opts)
-
+keymap("n", "<leader>b", ":Telescope file_browser<CR>", opts)
 -- }}}
