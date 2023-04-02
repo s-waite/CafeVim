@@ -1,13 +1,12 @@
 from pathlib import Path
-from re import sub
 from rich.console import Console
 from rich.prompt import Prompt
 import os
 import shutil
 import subprocess
 
+# Use console from rich library for colored output
 console = Console()
-
 
 def confirm(question):
     while True:
@@ -22,7 +21,7 @@ def clone_repository(branch, repo_url, dest_dir):
         console.print("Failed to clone repository.")
         exit(1)
 
-
+# Setup directory names and colors
 home_dir = Path.home()
 neovim_config_dir = home_dir / ".config/nvim"
 neovim_share_dir = home_dir / ".local/share/nvim"
@@ -32,16 +31,18 @@ success_style = "bold green"
 error_style = "bold red"
 progress_style = "bold yellow"
 
+# Start the installation process
 console.print("\n", end="")
 console.print("Beginning CafeVim installation...", style=info_style)
 
+# If any neovim files exist, ask to delete them. If user declines exit install
 if neovim_config_dir.exists() or neovim_share_dir.exists():
     if confirm("Are you sure you want to delete your Neovim configuration and share directories?"):
         for directory in [neovim_config_dir, neovim_share_dir]:
             if directory.exists():
-                console.print(f"Deleting {directory}...", style=progress_style)
+                console.print(f"Deleting {directory}...")
                 shutil.rmtree(directory)
-                console.print(f"{directory} deleted successfully.", style=success_style)
+                console.print(f"{directory} deleted successfully.")
     else:
         console.print(
             "Aborting. Neovim configuration and share directories not deleted.", style=error_style
@@ -53,6 +54,7 @@ else:
         style=info_style,
     )
 
+# Clone CafeVim repo
 console.print("Cloning CafeVim repository...", style=info_style)
 clone_repository(branch, "https://github.com/s-waite/CafeVim.git", str(neovim_config_dir))
 console.print("CafeVim repository cloned successfully.", style=success_style)
@@ -74,6 +76,7 @@ subprocess.call(
     stdout=subprocess.DEVNULL,
 )
 console.print("Success!", style=success_style)
+print()
 
 console.print("Installing TreeSitter parsers, please wait", style=progress_style)
 subprocess.call(
@@ -88,7 +91,6 @@ subprocess.call(
     stdout=subprocess.DEVNULL,
     stderr=subprocess.DEVNULL,
 )
-print()
 console.print("Success!", style=success_style)
 print()
 
@@ -98,7 +100,7 @@ print()
 console.print("Success!", style=success_style)
 print()
 
-
+# Download the eclipse java language server, for use with the jdtls plugin
 if confirm(
     "Would you like to install the Eclipse Java language server? If not, you will have to do this manually (see the nvim-jdtls plugin)"
 ):

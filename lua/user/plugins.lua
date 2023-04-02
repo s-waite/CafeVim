@@ -46,6 +46,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	use("lukas-reineke/indent-blankline.nvim")
 	-- }}}
 
 	-- {{{ Colorschemes
@@ -103,7 +104,7 @@ return packer.startup(function(use)
 
 	-- {{{ Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
-	use({ "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"})
+	use({ "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" })
 	-- }}}
 
 	-- {{{ Terminal
